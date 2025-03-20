@@ -1,0 +1,22 @@
+<archetype-descriptor xmlns="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xsi:schemaLocation="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0 https://maven.apache.org/xsd/archetype-descriptor-1.1.0.xsd"
+        name="birt-component-archetype">
+  <requiredProperties>
+    <requiredProperty key="srcJar">
+      <defaultValue>lib/birt-component.jar</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="birtComponentArtifactId">
+      <defaultValue>org.eclipse.component</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="birtComponentVersion">
+      <defaultValue>1.0</defaultValue>
+    </requiredProperty>
+  </requiredProperties>
+  <fileSets>
+    <fileSet filtered="true" encoding="UTF-8">
+      <includes>
+        <include>**/*.pom</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+</archetype-descriptor>
