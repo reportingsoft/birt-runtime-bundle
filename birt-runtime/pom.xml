@@ -30,6 +30,7 @@
         <bundle.javadoc.path>${bundle.dir}/${deploy.artifactId}-${deploy.version}-javadoc.jar</bundle.javadoc.path>
         <bundle.sources.path>${bundle.dir}/${deploy.artifactId}-${deploy.version}-sources.jar</bundle.sources.path>
         <pom.file>${deploy.artifactId}-${deploy.version}.pom</pom.file>
+        <pom.path>${bundle.dir}/${pom.file}</pom.path>
     </properties>
 
     <build>
@@ -47,27 +48,30 @@
                         <configuration>
                             <target>
                                 <copy file="${src.jar.path}" tofile="${bundle.jar.path}"/>
-                                <copy file="${pom.file}" tofile="${bundle.dir}/${pom.file}"/>
+                                <copy file="${pom.file}" tofile="${pom.path}"/>
                                 <copy file="${common.javadoc.path}" toFile="${bundle.javadoc.path}"/>
                                 <copy file="${common.sources.path}" toFile="${bundle.sources.path}"/>
 
                                 <checksum file="${bundle.jar.path}" algorithm="MD5" fileext=".md5"/>
                                 <checksum file="${bundle.jar.path}" algorithm="SHA-1" fileext=".sha1"/>
                                 <exec executable="gpg">
+                                    <arg value="--yes"/> <!-- answer yes if asked to erase existing file -->
                                     <arg value="-ab"/>
                                     <arg value="${bundle.jar.path}"/>
                                 </exec>
 
-                                <checksum file="${bundle.dir}/${pom.file}" algorithm="MD5" fileext=".md5"/>
-                                <checksum file="${bundle.dir}/${pom.file}" algorithm="SHA-1" fileext=".sha1"/>
+                                <checksum file="${pom.path}" algorithm="MD5" fileext=".md5"/>
+                                <checksum file="${pom.path}" algorithm="SHA-1" fileext=".sha1"/>
                                 <exec executable="gpg">
+                                    <arg value="--yes"/> <!-- answer yes if asked to erase existing file -->
                                     <arg value="-ab"/>
-                                    <arg value="${bundle.dir}/${pom.file}"/>
+                                    <arg value="${pom.path}"/>
                                 </exec>
 
                                 <checksum file="${bundle.javadoc.path}" algorithm="MD5" fileext=".md5"/>
                                 <checksum file="${bundle.javadoc.path}" algorithm="SHA-1" fileext=".sha1"/>
                                 <exec executable="gpg">
+                                    <arg value="--yes"/> <!-- answer yes if asked to erase existing file -->
                                     <arg value="-ab"/>
                                     <arg value="${bundle.javadoc.path}"/>
                                 </exec>
@@ -75,6 +79,7 @@
                                 <checksum file="${bundle.sources.path}" algorithm="MD5" fileext=".md5"/>
                                 <checksum file="${bundle.sources.path}" algorithm="SHA-1" fileext=".sha1"/>
                                 <exec executable="gpg">
+                                    <arg value="--yes"/> <!-- answer yes if asked to erase existing file -->
                                     <arg value="-ab"/>
                                     <arg value="${bundle.sources.path}"/>
                                 </exec>
@@ -85,6 +90,25 @@
                                     </fileset>
                                 </zip>
                             </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>deploy-org.eclipse.birt.runtime</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>deploy-file</goal>
+                        </goals>
+                        <configuration>
+                            <repositoryId>remote-repos</repositoryId>
+                            <url>${deploy.file.url}</url>
+                            <file>${bundle.jar.path}</file>
+                            <pomFile>${pom.path}</pomFile>
                         </configuration>
                     </execution>
                 </executions>

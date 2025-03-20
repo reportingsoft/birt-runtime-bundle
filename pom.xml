@@ -22,6 +22,7 @@
         <common.files.path>../common</common.files.path>
         <common.javadoc.path>${common.files.path}/javadoc.jar</common.javadoc.path>
         <common.sources.path>${common.files.path}/sources.jar</common.sources.path>
+        <deploy.file.url>https://lausanne.reportingsoft.ch/artifactory/ext-release-local</deploy.file.url>
     </properties>
 
     <profiles>
