@@ -5,9 +5,8 @@
 
     <parent>
         <groupId>ch.reportingsoft.birt</groupId>
-        <artifactId>birt-runtime-bundle</artifactId>
+        <artifactId>birt-deploy-parent</artifactId>
         <version>1.0.0</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>deploy-birt-runtime</artifactId>

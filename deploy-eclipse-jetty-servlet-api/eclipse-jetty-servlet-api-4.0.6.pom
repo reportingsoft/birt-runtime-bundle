@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>ch.reportingsoft.birt</groupId>
+    <artifactId>eclipse-jetty-servlet-api</artifactId>
+    <version>4.0.6</version>
+    <packaging>jar</packaging>
+
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>This artifact is designed to be imported via a BOM artifact,
+        providing all the required dependencies to integrate a BIRT engine into a project.</description>
+    <url>https://www.reportingsoft.ch</url>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:git@github.com:reportingsoft/birt-runtime-bundle.git</connection>
+        <developerConnection>git@github.com:reportingsoft/birt-runtime-bundle.git</developerConnection>
+        <url>https://github.com/reportingsoft/birt-runtime-bundle</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>Nicolas Perritaz</name>
+            <email>nicolas.perritaz@reportingsoft.ch</email>
+            <organization>ReportingSoft SA</organization>
+            <organizationUrl>https://www.reportingsoft.ch</organizationUrl>
+        </developer>
+    </developers>
+
+</project>

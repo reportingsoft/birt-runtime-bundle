@@ -6,19 +6,18 @@
         <groupId>ch.reportingsoft.birt</groupId>
         <artifactId>birt-deploy-parent</artifactId>
         <version>1.0.0</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>deploy-eclipse-core-contenttype</artifactId>
+    <artifactId>deploy-eclipse-datatools-connectivity-sqm-core</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <properties>
         <!-- Library-specific properties -->
-        <src.jar>lib/org.eclipse.core.contenttype_3.9.600.v20241001-1711.jar</src.jar>
+        <src.jar>lib/org.eclipse.datatools.connectivity.sqm.core_1.6.0.202311071345.jar</src.jar>
         <deploy.groupId>ch.reportingsoft.birt</deploy.groupId>
-        <deploy.artifactId>eclipse-core-contenttype</deploy.artifactId>
-        <deploy.version>3.9.600</deploy.version>
+        <deploy.artifactId>eclipse-datatools-connectivity-sqm-core</deploy.artifactId>
+        <deploy.version>1.6.0</deploy.version>
 
         <!-- Fixed properties -->
         <deploy.root>ch/reportingsoft/birt</deploy.root>
