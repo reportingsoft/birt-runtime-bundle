@@ -1,6 +1,5 @@
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -11,6 +10,7 @@
 
     <artifactId>deploy-birt-runtime</artifactId>
     <version>1.0.0</version>
+    <packaging>jar</packaging>
 
     <properties>
         <!-- Library-specific properties -->
@@ -18,9 +18,9 @@
         <deploy.groupId>ch.reportingsoft.birt</deploy.groupId>
         <deploy.artifactId>birt-runtime</deploy.artifactId>
         <deploy.version>4.18.0</deploy.version>
-        <deploy.root>ch/reportingsoft/birt</deploy.root>
 
         <!-- Fixed properties -->
+        <deploy.root>ch/reportingsoft/birt</deploy.root>
         <src.jar.path>${report.engine.path}/${src.jar}</src.jar.path>
         <bundle.root>${project.build.directory}/bundle</bundle.root>
         <bundle.dir>${bundle.root}/${deploy.root}/${deploy.artifactId}/${deploy.version}</bundle.dir>
@@ -31,6 +31,7 @@
         <pom.file>${deploy.artifactId}-${deploy.version}.pom</pom.file>
         <pom.path>${bundle.dir}/${pom.file}</pom.path>
     </properties>
+
 
     <build>
         <plugins>

@@ -1,0 +1,60 @@
+pipeline {
+    agent any
+    tools {
+        maven "MAVEN"
+        jdk "JDK_11"
+    }
+    options {
+        disableConcurrentBuilds()
+    }
+    stages {
+        stage ('Artifactory configuration') {
+            steps {
+                rtMavenDeployer (
+                        id: "MAVEN_DEPLOYER",
+                        serverId: "RS_ARTIFACTORY",
+                        releaseRepo: "libs-release-local",
+                        snapshotRepo: "libs-snapshot-local"
+                )
+
+                rtMavenResolver (
+                        id: "MAVEN_RESOLVER",
+                        serverId: "RS_ARTIFACTORY",
+                        releaseRepo: "libs-release",
+                        snapshotRepo: "libs-snapshot"
+                )
+            }
+        }
+
+        stage ('Exec Maven') {
+            steps {
+                rtMavenRun (
+                        tool: "MAVEN", // Tool name from Jenkins configuration
+                        pom: 'pom.xml',
+                        goals: 'clean install',
+                        deployerId: "MAVEN_DEPLOYER",
+                        resolverId: "MAVEN_RESOLVER"
+                )
+            }
+        }
+
+        stage ('Publish build info') {
+            steps {
+                rtPublishBuildInfo (
+                        serverId: "RS_ARTIFACTORY"
+                )
+            }
+        }
+    }
+    post {
+        always {
+            emailext (
+                subject: "${currentBuild.currentResult}: ${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} ",
+                body: "Build ${env.JOB_NAME} #${env.BUILD_NUMBER} has been completed with status ${currentBuild.currentResult}" +
+                    "\nMore Info can be found here: ${env.BUILD_URL}",
+                to: "${env.DEV_RECIPIENTS}",
+                attachLog: true
+            )
+        }
+    }
+}
