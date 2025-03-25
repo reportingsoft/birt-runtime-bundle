@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ch.reportingsoft.birt</groupId>
   <artifactId>birt-component-archetype</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>4.18.0</version>
   <name>Archetype - birt-component-archetype</name>
   <url>https://www.reportingsoft.ch</url>
   <packaging>maven-archetype</packaging>
