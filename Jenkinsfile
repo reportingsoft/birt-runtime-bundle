@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label "linux"
+    }
     environment {
         JDK_TOOL = 'JDK_21'
         MAVEN_TOOL = 'MAVEN'
