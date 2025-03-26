@@ -87,7 +87,7 @@ pipeline {
         stage('Deploy components') {
             steps {
                 dir("deploy-birt-components") {
-                    withCredentials([string(credentialsId: 'MAVEN_CENTRAL_SIGNING_KEY', variable: 'SIGNING_KEY')]) {
+                    withCredentials([file(credentialsId: 'MAVEN_CENTRAL_SIGNING_KEY', variable: 'SIGNING_KEY')]) {
                         withMaven(
                                 maven: "${MAVEN_TOOL}",
                                 jdk: "${JDK_TOOL}"
