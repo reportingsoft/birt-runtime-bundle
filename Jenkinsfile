@@ -85,12 +85,14 @@ pipeline {
             }
         }
         stage('Deploy components') {
-            dir("deploy-birt-components") {
-                withMaven(
-                        maven: "${MAVEN_TOOL}",
-                        jdk: "${JDK_TOOL}"
-                ) {
-                    sh "mvn clean deploy"
+            steps {
+                dir("deploy-birt-components") {
+                    withMaven(
+                            maven: "${MAVEN_TOOL}",
+                            jdk: "${JDK_TOOL}"
+                    ) {
+                        sh "mvn clean deploy"
+                    }
                 }
             }
         }
