@@ -4,7 +4,7 @@
 
     <parent>
         <groupId>${groupId}</groupId>
-        <artifactId>birt-deploy-parent</artifactId>
+        <artifactId>deploy-birt-components</artifactId>
         <version>1.0.0</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
