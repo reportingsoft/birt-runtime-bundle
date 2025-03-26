@@ -8,6 +8,15 @@ pipeline {
     }
     stages {
         stage('Download BIRT package') {
+            when {
+                expression {
+                    def dirExists = sh(
+                            script: "if [ -d common/reportEngine ]; then echo true; else echo false; fi",
+                            returnStdout: true
+                    ).trim()
+                    return dirExists == "false"
+                }
+            }
             steps {
                 dir ("download-birt-package") {
                     withMaven(
@@ -33,6 +42,10 @@ pipeline {
         }
         stage('Generate Component Modules') {
             steps {
+                sh '''
+                    # Cleanup all subdirectories under deploy-birt-components
+                    find deploy-birt-components -mindepth 1 -type d -exec rm -rf {} +
+                '''
                 dir("deploy-birt-components") {
                     withMaven (
                             maven: "${MAVEN_TOOL}",
