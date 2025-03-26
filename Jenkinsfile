@@ -87,11 +87,14 @@ pipeline {
         stage('Deploy components') {
             steps {
                 dir("deploy-birt-components") {
-                    withMaven(
-                            maven: "${MAVEN_TOOL}",
-                            jdk: "${JDK_TOOL}"
-                    ) {
-                        sh "mvn clean deploy"
+                    withCredentials([string(credentialsId: 'MAVEN_CENTRAL_SIGNING_KEY', variable: 'SIGNING_KEY')]) {
+                        withMaven(
+                                maven: "${MAVEN_TOOL}",
+                                jdk: "${JDK_TOOL}"
+                        ) {
+                            sh """gpg --allow-secret-key-import --import ${SIGNING_KEY}"""
+                            sh "mvn clean deploy"
+                        }
                     }
                 }
             }
