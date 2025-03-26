@@ -100,14 +100,14 @@
                 <artifactId>maven-deploy-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>deploy-org.eclipse.birt.runtime</id>
+                        <id>deploy-${birtComponentArtifactId}</id>
                         <phase>deploy</phase>
                         <goals>
                             <goal>deploy-file</goal>
                         </goals>
                         <configuration>
                             <repositoryId>remote-repos</repositoryId>
-                            <url>${deploy.file.url}</url>
+                            <url>${deploy.component.url}</url>
                             <file>${bundle.jar.path}</file>
                             <pomFile>${pom.path}</pomFile>
                         </configuration>

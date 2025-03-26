@@ -15,6 +15,7 @@
     <common.javadoc.path>${common.files.path}/javadoc.jar</common.javadoc.path>
     <common.sources.path>${common.files.path}/sources.jar</common.sources.path>
     <report.engine.path>${common.files.path}/reportEngine</report.engine.path>
+    <deploy.component.url>https://lausanne.reportingsoft.ch/artifactory/ext-release-local</deploy.component.url>
   </properties>
 
   <build>
@@ -63,17 +64,4 @@
       </plugins>
     </pluginManagement>
   </build>
-
-  <distributionManagement>
-    <repository>
-      <id>ext-releases</id>
-      <name>Internal Repository</name>
-      <url>https://lausanne.reportingsoft.ch/artifactory/ext-release-local</url>
-    </repository>
-    <snapshotRepository>
-      <id>ext-snapshots</id>
-      <name>Internal Repository Snapshots</name>
-      <url>https://lausanne.reportingsoft.ch/artifactory/ext-snapshot-local</url>
-    </snapshotRepository>
-  </distributionManagement>
 </project>
