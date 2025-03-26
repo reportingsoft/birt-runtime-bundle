@@ -18,7 +18,7 @@ pipeline {
                 }
             }
             steps {
-                dir ("download-birt-package") {
+                dir("download-birt-package") {
                     withMaven(
                             maven: "${MAVEN_TOOL}",
                             jdk: "${JDK_TOOL}"
@@ -30,10 +30,10 @@ pipeline {
         }
         stage('Install Component Archetype') {
             steps {
-                dir ("birt-component-archetype") {
-                    withMaven (
-                        maven: "${MAVEN_TOOL}",
-                        jdk: "${JDK_TOOL}"
+                dir("birt-component-archetype") {
+                    withMaven(
+                            maven: "${MAVEN_TOOL}",
+                            jdk: "${JDK_TOOL}"
                     ) {
                         sh "mvn install"
                     }
@@ -47,7 +47,7 @@ pipeline {
                     find deploy-birt-components -mindepth 1 -type d -exec rm -rf {} +
                 '''
                 dir("deploy-birt-components") {
-                    withMaven (
+                    withMaven(
                             maven: "${MAVEN_TOOL}",
                             jdk: "${JDK_TOOL}"
                     ) {
@@ -81,6 +81,16 @@ pipeline {
                             mvn -U archetype:generate -DinteractiveMode=false -DarchetypeGroupId=ch.reportingsoft.birt -DarchetypeArtifactId=birt-component-archetype -DarchetypeVersion=4.18.0 -DgroupId=ch.reportingsoft.birt -DartifactId=deploy-eclipse-osgi -Dversion=1.0.0 -DsrcJar=lib/org.eclipse.osgi_3.22.0.v20241030-2121.jar -DbirtComponentArtifactId=eclipse-osgi -DbirtComponentVersion=3.22.0
                         """
                     }
+                }
+            }
+        }
+        stage('Deploy components') {
+            dir("deploy-birt-components") {
+                withMaven(
+                        maven: "${MAVEN_TOOL}",
+                        jdk: "${JDK_TOOL}"
+                ) {
+                    sh "mvn clean deploy"
                 }
             }
         }
