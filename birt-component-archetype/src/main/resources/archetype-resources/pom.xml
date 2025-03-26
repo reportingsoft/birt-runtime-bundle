@@ -25,7 +25,7 @@
         <src.jar.path>${report.engine.path}/${src.jar}</src.jar.path>
         <bundle.root>${project.build.directory}/bundle</bundle.root>
         <bundle.dir>${bundle.root}/${deploy.root}/${deploy.artifactId}/${deploy.version}</bundle.dir>
-        <bundle.file>${project.build.directory}/${deploy.artifactId}${deploy.version}-.zip</bundle.file>
+        <bundle.file>${project.build.directory}/${deploy.artifactId}-${deploy.version}.zip</bundle.file>
         <bundle.jar.path>${bundle.dir}/${deploy.artifactId}-${deploy.version}.jar</bundle.jar.path>
         <bundle.javadoc.path>${bundle.dir}/${deploy.artifactId}-${deploy.version}-javadoc.jar</bundle.javadoc.path>
         <bundle.sources.path>${bundle.dir}/${deploy.artifactId}-${deploy.version}-sources.jar</bundle.sources.path>
