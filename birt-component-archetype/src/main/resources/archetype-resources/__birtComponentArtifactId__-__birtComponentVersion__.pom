@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>${project.groupId}:${project.artifactId}</name>
-    <description>This BIRT component is included in `${groupId}:${bundleArtifactId}:4.18.0`; we recommend importing this component through `birt-engine-core`.</description>
+    <description>Component of the BIRT runtime engine published at `${groupId}:${bundleArtifactId}:4.18.0`.</description>
     <url>https://www.reportingsoft.ch</url>
 
     <licenses>
