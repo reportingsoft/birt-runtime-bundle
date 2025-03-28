@@ -10,12 +10,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>birt-bom-runtime</module>
-<!--        <module>birt-bom-sql</module>
-        <module>birt-bom-postgresql</module>
-        <module>birt-bom-xml</module>
-        <module>birt-bom-mysql</module>
-        <module>birt-bom-oracle</module>
-        <module>birt-bom-all</module>-->
     </modules>
 
     <properties>
