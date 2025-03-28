@@ -12,7 +12,7 @@
       <defaultValue>1.0</defaultValue>
     </requiredProperty>
     <requiredProperty key="bundleArtifactId">
-      <defaultValue>birt-engine-core</defaultValue>
+      <defaultValue>birt-runtime-bundle</defaultValue>
     </requiredProperty>
   </requiredProperties>
   <fileSets>

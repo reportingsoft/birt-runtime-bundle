@@ -4,7 +4,7 @@ This module defines all the necessary dependencies to run a BIRT engine in a Jav
 application.
 
 All dependencies declared in the [pom.xml](pom.xml) file will be transitively available to a
-project declaring `birt-bom-runtime` in its dependencies:
+project declaring `birt-runtime-bundle` in its dependencies:
 
 Usage with Gradle:
     
@@ -14,7 +14,7 @@ Usage with Maven:
 
     <dependency>
         <groupId>ch.reportingsoft.birt</groupId>
-        <name>birt-bom-runtime</name>
+        <name>birt-runtime-bundle</name>
         <version>1.18.0</version>
         <type>pom</type>
     </dependency>
