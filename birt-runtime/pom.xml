@@ -510,7 +510,7 @@
             <id>internal</id>
             <distributionManagement>
                 <repository>
-                    <id>libs-release-local</id>
+                    <id>releases</id>
                 </repository>
             </distributionManagement>
         </profile>
