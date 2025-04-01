@@ -506,6 +506,14 @@
                 </plugins>
             </build>
         </profile>
+        <profile>
+            <id>internal</id>
+            <distributionManagement>
+                <repository>
+                    <id>libs-release-local</id>
+                </repository>
+            </distributionManagement>
+        </profile>
     </profiles>
 
     <build>

@@ -14,7 +14,7 @@ pipeline {
                             maven: "${MAVEN_TOOL}",
                             jdk: "${JDK_TOOL}"
                     ) {
-                        sh """mvn deploy"""
+                        sh """mvn deploy -Pinternal"""
                     }
                 }
             }
