@@ -511,6 +511,7 @@
             <distributionManagement>
                 <repository>
                     <id>releases</id>
+                    <url>https://lausanne.reportingsoft.ch/artifactory/libs-release-local</url>
                 </repository>
             </distributionManagement>
         </profile>
