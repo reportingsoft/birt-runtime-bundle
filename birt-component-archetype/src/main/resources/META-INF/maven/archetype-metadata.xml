@@ -11,6 +11,9 @@
     <requiredProperty key="birtComponentVersion">
       <defaultValue>1.0</defaultValue>
     </requiredProperty>
+    <requiredProperty key="bundleArtifactId">
+      <defaultValue>birt-runtime-bundle</defaultValue>
+    </requiredProperty>
   </requiredProperties>
   <fileSets>
     <fileSet filtered="true" encoding="UTF-8">
