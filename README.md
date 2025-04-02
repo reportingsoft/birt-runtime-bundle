@@ -2,19 +2,18 @@
 This repository is responsible for generating and publishing BIRT Runtime libraries.
 
 ---
-
 ## Download BIRT Package
 
 To download the BIRT package, use the following steps:
 
-1. Navigate to the `[birt-deploy-parent](birt-deploy-parent)` module.
+1. Navigate to the `[download-birt-package](download-birt-package)` module.
 2. Run the following Maven command:
    ```bash
    mvn clean package -Pdownload-package
    ```
-   This command will:
-    - Download the BIRT public package using the URL specified in the [`pom.xml`](birt-deploy-parent/pom.xml).
-    - Unpack the downloaded package into the `target` directory.
+This command will:
+- Download the BIRT public package using the URL specified in the [`pom.xml`](download-birt-package/pom.xml).
+- Unpack the downloaded package into the `target` directory.
 
 The public package download URL can be updated by editing the `birt.runtime.download.url` property:
 ```xml
@@ -25,31 +24,17 @@ The public package download URL can be updated by editing the `birt.runtime.down
 
 ### Location of Downloaded Artifacts
 
-After running the command, the deployment artifacts will be available in the `[reportEngine](birt-deploy-parent/target/reportEngine)` folder.
+After running the command, the deployment artifacts will be available in the `[reportEngine](common/reportEngine)` folder.
 
----
+## Install the birt-component-archetype
 
-## Create a BIRT Component Deployment Artifact
-
-To create a BIRT component deployment artifact, execute the following Maven command:
+in [birt-component-archetype](birt-component-archetype):
+   ```bash
+   mvn install
+   ```
+## Create the BIRT components deployment modules from the birt-component-archetype
 
 ```bash
-mvn -U archetype:generate \
-    -DinteractiveMode=true \
-    -DarchetypeGroupId=ch.reportingsoft.birt \
-    -DarchetypeArtifactId=birt-component-archetype \
-    -DarchetypeVersion=4.18.0\
-    -DgroupId=ch.reportingsoft.birt \
-    -Dversion=1.0.0-SNAPSHOT \
-    -DartifactId=<artifact-id> \
-    -DsrcJar=<path-to-birt-component-jar> \
-    -DbirtComponentArtifactId=<component-artifact-id> \
-    -DbirtComponentVersion=<component-version>
-```
-
-This command will create a deployment artifact based on the specified archetype, allowing you to customize the parameters like `groupId`, `artifactId`, `version`, and `package` as needed.
-
-```
 mvn -U archetype:generate -DinteractiveMode=false -DarchetypeGroupId=ch.reportingsoft.birt -DarchetypeArtifactId=birt-component-archetype -DarchetypeVersion=4.18.0 -DgroupId=ch.reportingsoft.birt -DartifactId=deploy-birt-runtime -Dversion=1.0.0 -DsrcJar=lib/org.eclipse.birt.runtime_4.18.0-202412050604.jar -DbirtComponentArtifactId=birt-runtime -DbirtComponentVersion=4.18.0
 mvn -U archetype:generate -DinteractiveMode=false -DarchetypeGroupId=ch.reportingsoft.birt -DarchetypeArtifactId=birt-component-archetype -DarchetypeVersion=4.18.0 -DgroupId=ch.reportingsoft.birt -DartifactId=deploy-eclipse-core-contenttype -Dversion=1.0.0 -DsrcJar=lib/org.eclipse.core.contenttype_3.9.600.v20241001-1711.jar -DbirtComponentArtifactId=eclipse-core-contenttype -DbirtComponentVersion=3.9.600
 mvn -U archetype:generate -DinteractiveMode=false -DarchetypeGroupId=ch.reportingsoft.birt -DarchetypeArtifactId=birt-component-archetype -DarchetypeVersion=4.18.0 -DgroupId=ch.reportingsoft.birt -DartifactId=deploy-eclipse-core-expressions -Dversion=1.0.0 -DsrcJar=lib/org.eclipse.core.expressions_3.9.400.v20240413-1529.jar -DbirtComponentArtifactId=eclipse-core-expressions -DbirtComponentVersion=3.9.400
@@ -77,11 +62,22 @@ mvn -U archetype:generate -DinteractiveMode=false -DarchetypeGroupId=ch.reportin
 mvn -U archetype:generate -DinteractiveMode=false -DarchetypeGroupId=ch.reportingsoft.birt -DarchetypeArtifactId=birt-component-archetype -DarchetypeVersion=4.18.0 -DgroupId=ch.reportingsoft.birt -DartifactId=deploy-eclipse-jetty-servlet-api -Dversion=1.0.0 -DsrcJar=lib/org.eclipse.jetty.servlet-api_4.0.6.jar -DbirtComponentArtifactId=eclipse-jetty-servlet-api -DbirtComponentVersion=4.0.6
 mvn -U archetype:generate -DinteractiveMode=false -DarchetypeGroupId=ch.reportingsoft.birt -DarchetypeArtifactId=birt-component-archetype -DarchetypeVersion=4.18.0 -DgroupId=ch.reportingsoft.birt -DartifactId=deploy-eclipse-orbit-xml-apis -Dversion=1.0.0 -DsrcJar=lib/org.eclipse.orbit.xml-apis-ext_1.0.0.v20240917-0534.jar -DbirtComponentArtifactId=eclipse-orbit-xml-apis -DbirtComponentVersion=1.0.0
 mvn -U archetype:generate -DinteractiveMode=false -DarchetypeGroupId=ch.reportingsoft.birt -DarchetypeArtifactId=birt-component-archetype -DarchetypeVersion=4.18.0 -DgroupId=ch.reportingsoft.birt -DartifactId=deploy-eclipse-osgi -Dversion=1.0.0 -DsrcJar=lib/org.eclipse.osgi_3.22.0.v20241030-2121.jar -DbirtComponentArtifactId=eclipse-osgi -DbirtComponentVersion=3.22.0
+mvn -U archetype:generate -DinteractiveMode=false -DarchetypeGroupId=ch.reportingsoft.birt -DarchetypeArtifactId=birt-component-archetype -DarchetypeVersion=4.18.0 -DgroupId=ch.reportingsoft.birt -DartifactId=deploy-eclipse-datatools-enablement-oda-xml -Dversion=1.0.0 -DsrcJar=addons/org.eclipse.datatools.enablement.oda.xml_1.6.0.202411281604.jar -DbirtComponentArtifactId=eclipse-datatools-enablement-oda-xml -DbirtComponentVersion=1.6.0
+mvn -U archetype:generate -DinteractiveMode=false -DarchetypeGroupId=ch.reportingsoft.birt -DarchetypeArtifactId=birt-component-archetype -DarchetypeVersion=4.18.0 -DgroupId=ch.reportingsoft.birt -DartifactId=deploy-eclipse-datatools-modelbase-dbdefinition -Dversion=1.0.0 -DsrcJar=addons/org.eclipse.datatools.modelbase.dbdefinition_1.3.0.202311071249.jar -DbirtComponentArtifactId=eclipse-datatools-modelbase-dbdefinition -DbirtComponentVersion=1.3.0
+mvn -U archetype:generate -DinteractiveMode=false -DarchetypeGroupId=ch.reportingsoft.birt -DarchetypeArtifactId=birt-component-archetype -DarchetypeVersion=4.18.0 -DgroupId=ch.reportingsoft.birt -DartifactId=deploy-eclipse-eclipse-datatools-modelbase-derby -Dversion=1.0.0 -DsrcJar=addons/org.eclipse.datatools.modelbase.derby_1.3.0.202311071249.jar -DbirtComponentArtifactId=eclipse-datatools-modelbase-derby -DbirtComponentVersion=1.3.0
+mvn -U archetype:generate -DinteractiveMode=false -DarchetypeGroupId=ch.reportingsoft.birt -DarchetypeArtifactId=birt-component-archetype -DarchetypeVersion=4.18.0 -DgroupId=ch.reportingsoft.birt -DartifactId=deploy-eclipse-eclipse-datatools-modelbase-sql-query -Dversion=1.0.0 -DsrcJar=addons/org.eclipse.datatools.modelbase.sql.query_1.4.0.202311071249.jar -DbirtComponentArtifactId=eclipse-datatools-modelbase-sql-query -DbirtComponentVersion=1.4.0
+mvn -U archetype:generate -DinteractiveMode=false -DarchetypeGroupId=ch.reportingsoft.birt -DarchetypeArtifactId=birt-component-archetype -DarchetypeVersion=4.18.0 -DgroupId=ch.reportingsoft.birt -DartifactId=deploy-eclipse-datatools-modelbase-sql -Dversion=1.0.0 -DsrcJar=addons/org.eclipse.datatools.modelbase.sql_1.3.0.202311071249.jar -DbirtComponentArtifactId=eclipse-datatools-modelbase-sql -DbirtComponentVersion=1.3.0
+mvn -U archetype:generate -DinteractiveMode=false -DarchetypeGroupId=ch.reportingsoft.birt -DarchetypeArtifactId=birt-component-archetype -DarchetypeVersion=4.18.0 -DgroupId=ch.reportingsoft.birt -DartifactId=deploy-icu -Dversion=1.0.0 -DsrcJar=lib/com.ibm.icu_76.1.0.jar -DbirtComponentArtifactId=icu -DbirtComponentVersion=76.1.0
+mvn -U archetype:generate -DinteractiveMode=false -DarchetypeGroupId=ch.reportingsoft.birt -DarchetypeArtifactId=birt-component-archetype -DarchetypeVersion=4.18.0 -DgroupId=ch.reportingsoft.birt -DartifactId=deploy-jna -Dversion=1.0.0 -DsrcJar=lib/com.sun.jna.platform_5.15.0.jar -DbirtComponentArtifactId=jna -DbirtComponentVersion=5.15.0
+mvn -U archetype:generate -DinteractiveMode=false -DarchetypeGroupId=ch.reportingsoft.birt -DarchetypeArtifactId=birt-component-archetype -DarchetypeVersion=4.18.0 -DgroupId=ch.reportingsoft.birt -DartifactId=deploy-wsdl -Dversion=1.0.0 -DsrcJar=lib/javax.wsdl_1.6.3.v20230730-0710.jar -DbirtComponentArtifactId=wsdl -DbirtComponentVersion=1.6.3
+mvn -U archetype:generate -DinteractiveMode=false -DarchetypeGroupId=ch.reportingsoft.birt -DarchetypeArtifactId=birt-component-archetype -DarchetypeVersion=4.18.0 -DgroupId=ch.reportingsoft.birt -DartifactId=deploy-rpc-api -Dversion=1.0.0 -DsrcJar=lib/javax.xml.rpc-api_1.1.4.jar -DbirtComponentArtifactId=rpc-api -DbirtComponentVersion=1.1.4
+mvn -U archetype:generate -DinteractiveMode=false -DarchetypeGroupId=ch.reportingsoft.birt -DarchetypeArtifactId=birt-component-archetype -DarchetypeVersio
 ```
 
----
+## Generate deployment packages
 
-### Notes
+To generate a package ready to be uploaded to Maven Central for each artifact,
+execute `mvn package` command on the [deploy-birt-components](deploy-birt-components)
+module. This will generate the zip bundle to deploy on Maven central in `target` directory
+of each subproject.
 
-- For further details, refer to the `birt-deploy-parent` module documentation.
-- Ensure you have the required dependencies and permissions before executing the above commands.
