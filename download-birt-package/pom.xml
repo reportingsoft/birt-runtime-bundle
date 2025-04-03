@@ -11,11 +11,14 @@
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <birt.runtime.download.url>https://mirror.umd.edu/eclipse/birt/updates/release/4.18.0/downloads/birt-runtime-4.18.0-202412050604.zip</birt.runtime.download.url>
+        <eclipse.dtp.download.url>https://eclipse.mirror.wearetriple.com//datatools/updates/release/1.16.3/Data-Tools-Platform-Updates-1.16.3.zip</eclipse.dtp.download.url>
         <birt.runtime.zip>birt-runtime.zip</birt.runtime.zip>
+        <eclipse.dtp.zip>eclipse-dtp.zip</eclipse.dtp.zip>
         <common.files.path>../common</common.files.path>
         <common.javadoc.path>${common.files.path}/javadoc.jar</common.javadoc.path>
         <common.sources.path>${common.files.path}/sources.jar</common.sources.path>
         <report.engine.path>${common.files.path}/reportEngine</report.engine.path>
+        <dtp.plugins.path>${common.files.path}/reportEngine/plugins</dtp.plugins.path>
         <deploy.file.url>https://lausanne.reportingsoft.ch/artifactory/ext-release-local</deploy.file.url>
     </properties>
     <profiles>
@@ -50,6 +53,19 @@
                                             </mapper>
                                         </unzip>
                                         <delete file="${common.files.path}/${birt.runtime.zip}"/>
+
+                                        <get dest="${common.files.path}/${eclipse.dtp.zip}" src="${eclipse.dtp.download.url}"/>
+                                        <mkdir dir="${dtp.plugins.path}"/>
+                                        <!-- Step 2: Unzip the downloaded file -->
+                                        <unzip dest="${dtp.plugins.path}" src="${common.files.path}/${eclipse.dtp.zip}">
+                                            <patternset>
+                                                <include name="plugins/**"/>
+                                            </patternset>
+                                            <mapper>
+                                                <regexpmapper from="^plugins/(.*)" to="\1"/>
+                                            </mapper>
+                                        </unzip>
+                                        <delete file="${common.files.path}/${eclipse.dtp.zip}"/>
                                     </target>
                                 </configuration>
                                 <goals>
