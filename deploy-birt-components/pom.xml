@@ -17,7 +17,6 @@
     <report.engine.path>${common.files.path}/reportEngine</report.engine.path>
     <deploy.component.url>https://lausanne.reportingsoft.ch/artifactory/ext-release-local</deploy.component.url>
   </properties>
-
   <build>
     <pluginManagement>
       <plugins>
