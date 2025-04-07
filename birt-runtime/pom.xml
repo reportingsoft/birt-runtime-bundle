@@ -15,6 +15,32 @@
         <maven.compiler.target>21</maven.compiler.target>
     </properties>
 
+    <name>BIRT Runtime Bundle</name>
+    <description>Eclipse BIRT report engine</description>
+    <url>https://www.reportingsoft.ch</url>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:git@github.com:reportingsoft/birt-runtime-bundle.git</connection>
+        <developerConnection>git@github.com:reportingsoft/birt-runtime-bundle.git</developerConnection>
+        <url>https://github.com/reportingsoft/birt-runtime-bundle</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>Nicolas Perritaz</name>
+            <email>nicolas.perritaz@reportingsoft.ch</email>
+            <organization>ReportingSoft SA</organization>
+            <organizationUrl>https://www.reportingsoft.ch</organizationUrl>
+        </developer>
+    </developers>
+
     <dependencies>
         <!-- BIRT dependencies repackaged -->
         <dependency>
@@ -504,7 +530,7 @@
                         <version>0.7.0</version>
                         <extensions>true</extensions>
                         <configuration>
-                            <publishingServerId>central</publishingServerId>
+                            <publishingServerId>maven-central</publishingServerId>
                             <autoPublish>false</autoPublish>
                         </configuration>
                     </plugin>
