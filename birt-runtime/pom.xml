@@ -39,6 +39,12 @@
             <organization>ReportingSoft SA</organization>
             <organizationUrl>https://www.reportingsoft.ch</organizationUrl>
         </developer>
+        <developer>
+            <name>Patrick Cornaz</name>
+            <email>patrick.cornaz@reportingsoft.ch</email>
+            <organization>ReportingSoft SA</organization>
+            <organizationUrl>https://www.reportingsoft.ch</organizationUrl>
+        </developer>
     </developers>
 
     <dependencies>
