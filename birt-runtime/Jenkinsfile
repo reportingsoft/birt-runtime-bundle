@@ -6,8 +6,14 @@ pipeline {
         JDK_TOOL = 'JDK_21'
         MAVEN_TOOL = 'MAVEN'
     }
+    parameters {
+        choice(name: 'deploymentTarget', choices: ['Internal', 'Maven Central'], description: 'Deployment Target')
+    }
     stages {
-        stage('Deploy') {
+        stage('Deploy internally') {
+            when {
+                expression { params.deploymentTarget == 'Internal' }
+            }
             steps {
                 dir('birt-runtime') {
                     withMaven(
@@ -15,6 +21,21 @@ pipeline {
                             jdk: "${JDK_TOOL}"
                     ) {
                         sh """mvn deploy -Pinternal"""
+                    }
+                }
+            }
+        }
+        stage('Deploy to Maven Central') {
+            when {
+                expression { params.deploymentTarget == 'Maven Central' }
+            }
+            steps {
+                dir('birt-runtime') {
+                    withMaven(
+                            maven: "${MAVEN_TOOL}",
+                            jdk: "${JDK_TOOL}"
+                    ) {
+                        sh """mvn deploy -Pmaven-central"""
                     }
                 }
             }
