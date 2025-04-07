@@ -10,6 +10,13 @@ pipeline {
         choice(name: 'deploymentTarget', choices: ['Internal', 'Maven Central'], description: 'Deployment Target')
     }
     stages {
+        stage('Config GPG') {
+            steps {
+                withCredentials([file(credentialsId: 'MAVEN_CENTRAL_SIGNING_KEY', variable: 'SIGNING_KEY')]) {
+                    sh """gpg --allow-secret-key-import --import ${SIGNING_KEY}"""
+                }
+            }
+        }
         stage('Deploy internally') {
             when {
                 expression { params.deploymentTarget == 'Internal' }

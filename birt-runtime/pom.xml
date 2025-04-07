@@ -39,6 +39,12 @@
             <organization>ReportingSoft SA</organization>
             <organizationUrl>https://www.reportingsoft.ch</organizationUrl>
         </developer>
+        <developer>
+            <name>Patrick Cornaz</name>
+            <email>patrick.cornaz@reportingsoft.ch</email>
+            <organization>ReportingSoft SA</organization>
+            <organizationUrl>https://www.reportingsoft.ch</organizationUrl>
+        </developer>
     </developers>
 
     <dependencies>
@@ -530,6 +536,7 @@
                         <version>0.7.0</version>
                         <extensions>true</extensions>
                         <configuration>
+                            <deploymentName>${artifactId}:${version}</deploymentName>
                             <publishingServerId>maven-central</publishingServerId>
                             <autoPublish>false</autoPublish>
                         </configuration>
