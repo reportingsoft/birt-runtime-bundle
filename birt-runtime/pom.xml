@@ -16,7 +16,7 @@
     </properties>
 
     <name>BIRT Runtime Bundle</name>
-    <description>Eclipse BIRT report engine</description>
+    <description>Eclipse BIRT report engine, packaged as a single bundle that includes all the dependencies needed to run the BIRT engine, including the JARs from https://mirror.umd.edu/eclipse/birt/updates/release/4.18.0/downloads/birt-runtime-4.18.0-202412050604.zip, courtesy of ReportingSoft SA</description>
     <url>https://www.reportingsoft.ch</url>
 
     <licenses>
