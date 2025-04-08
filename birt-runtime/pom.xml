@@ -239,6 +239,11 @@
             <artifactId>apache-axis</artifactId>
             <version>1.4.1</version>
         </dependency>
+        <dependency>
+            <groupId>${groupId}</groupId>
+            <artifactId>apache-derby</artifactId>
+            <version>10.16.1</version>
+        </dependency>
 
         <!-- BIRT dependencies available on maven central -->
         <dependency>
@@ -405,11 +410,6 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-math3</artifactId>
             <version>3.6.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.derby</groupId>
-            <artifactId>derby</artifactId>
-            <version>10.16.1.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.felix</groupId>
