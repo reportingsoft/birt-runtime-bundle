@@ -244,6 +244,11 @@
             <artifactId>apache-derby</artifactId>
             <version>10.16.1</version>
         </dependency>
+        <dependency>
+            <groupId>${groupId}</groupId>
+            <artifactId>mongodb-java-driver</artifactId>
+            <version>3.12.14</version>
+        </dependency>
 
         <!-- BIRT dependencies available on maven central -->
         <dependency>
