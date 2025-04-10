@@ -1,16 +1,15 @@
 # BIRT Runtime Bundle
 
-This module defines all the necessary dependencies to run a BIRT engine in a Java
-application.
+This module provides all necessary dependencies to run a BIRT engine in your Java application.
 
-All dependencies declared in the [pom.xml](pom.xml) file will be transitively available to a
-project declaring `birt-runtime-bundle` in its dependencies:
+All dependencies declared in the [pom.xml](pom.xml) file will be transitively available to projects that include `birt-runtime-bundle` as a dependency:
 
-Usage with Gradle:
-    
+
+**Gradle**
+
     compile (group: 'ch.reportingsoft.birt', name: 'birt-runtime-bundle', version: '1.18.0', changing: true)
 
-Usage with Maven:
+**Maven**
 
     <dependency>
         <groupId>ch.reportingsoft.birt</groupId>
