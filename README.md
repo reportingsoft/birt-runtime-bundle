@@ -12,7 +12,7 @@ All dependencies declared in the [pom.xml](birt-runtime/pom.xml) file will be tr
 
 **Gradle**
 
-    compile (group: 'ch.reportingsoft.birt', name: 'birt-runtime-bundle', version: '1.18.0', changing: true)
+    compile (group: 'ch.reportingsoft.birt', name: 'birt-runtime-bundle', version: '4.18.0')
 
 **Maven**
 
