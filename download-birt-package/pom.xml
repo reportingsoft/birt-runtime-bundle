@@ -10,7 +10,7 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <birt.runtime.download.url>https://mirror.umd.edu/eclipse/birt/updates/release/4.18.0/downloads/birt-runtime-4.18.0-202412050604.zip</birt.runtime.download.url>
+        <birt.runtime.download.url>https://eclipse.mirror.wearetriple.com//birt/updates/release/4.19.0/downloads/birt-runtime-4.19.0-202503120947.zip</birt.runtime.download.url>
         <eclipse.dtp.download.url>https://eclipse.mirror.wearetriple.com//datatools/updates/release/1.16.3/Data-Tools-Platform-Updates-1.16.3.zip</eclipse.dtp.download.url>
         <birt.runtime.zip>birt-runtime.zip</birt.runtime.zip>
         <eclipse.dtp.zip>eclipse-dtp.zip</eclipse.dtp.zip>
