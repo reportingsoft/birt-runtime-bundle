@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>${project.groupId}:${project.artifactId}</name>
-    <description>Component of the BIRT runtime engine published at `${groupId}:${bundleArtifactId}:4.19.0`.</description>
+    <description>Component of the BIRT runtime engine published at `${groupId}:${bundleArtifactId}:4.20.0`.</description>
     <url>https://www.reportingsoft.ch</url>
 
     <licenses>
