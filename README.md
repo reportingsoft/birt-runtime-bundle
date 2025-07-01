@@ -18,7 +18,7 @@ All dependencies declared in the [pom.xml](birt-runtime/pom.xml) file will be tr
 
     <dependency>
         <groupId>ch.reportingsoft.birt</groupId>
-        <name>birt-runtime-bundle</name>
+        <artifactId>birt-runtime-bundle</artifactId>
         <version>4.20.0</version>
         <type>pom</type>
     </dependency>
