@@ -51,6 +51,11 @@
         <!-- BIRT dependencies repackaged -->
         <dependency>
             <groupId>${groupId}</groupId>
+            <artifactId>birt-runtime</artifactId>
+            <version>4.20.0</version>
+        </dependency>
+        <dependency>
+            <groupId>${groupId}</groupId>
             <artifactId>eclipse-core-expressions</artifactId>
             <version>3.9.400</version>
         </dependency>
